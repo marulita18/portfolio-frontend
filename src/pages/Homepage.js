@@ -21,6 +21,7 @@ export default function Homepage() {
       {wines.map((wine) => {
         return (
           <Card
+            key={wine.id}
             style={{ width: "18rem", maxWidth: "18rem" }}
             className="row justify-content-center m-2"
           >
