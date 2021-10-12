@@ -12,8 +12,6 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const token = useSelector(selectToken);
-  const history = useHistory();
 
   function submitForm(event) {
     console.log("hi");

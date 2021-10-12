@@ -31,7 +31,7 @@ export default function Navigation() {
             <Nav.Link eventKey="link-1">Cart</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-2">Gift</Nav.Link>
+            <Nav.Link href="/gift">Gift</Nav.Link>
           </Nav.Item>
           {loginLogout}
         </Nav>

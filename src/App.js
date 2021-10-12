@@ -8,6 +8,8 @@ import Homepage from "./pages/Homepage";
 import Navigation from "./components/navigation/index";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
+import GiftCardPage from "./pages/GiftCardPage";
+
 import "./App.css";
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
         <Route exact path="/" component={Homepage} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
+        <Route path="/gift" component={GiftCardPage} />
       </Switch>
     </div>
   );
