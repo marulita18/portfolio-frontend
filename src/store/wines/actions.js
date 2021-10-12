@@ -20,10 +20,8 @@ export function fetchingWines() {
   return async (dispatch, getState) => {
     dispatch(startLoading);
     try {
-      console.log("im here");
       const response = await axios.get(`http://localhost:4000/wines`);
-      console.log("my response", response.data);
-      //   dispatch(winesFetched(response.data));
+      dispatch(winesFetched(response.data));
     } catch (e) {
       console.log(e.message);
     }
