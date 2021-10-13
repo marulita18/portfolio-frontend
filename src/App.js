@@ -9,7 +9,8 @@ import Navigation from "./components/navigation/index";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 import GiftCardPage from "./pages/GiftCardPage";
-
+import CartPage from "./pages/CartPage";
+import Footer from "./components/footer";
 import "./App.css";
 
 function App() {
@@ -26,7 +27,9 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/gift" component={GiftCardPage} />
+        <Route path="/cart" component={CartPage} />
       </Switch>
+      {/* <Footer /> */}
     </div>
   );
 }

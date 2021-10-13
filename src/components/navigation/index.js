@@ -8,7 +8,6 @@ import { selectToken } from "../../store/user/selector";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
-  console.log(token, " show yourself token");
   const loginLogout = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
@@ -28,7 +27,9 @@ export default function Navigation() {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-1">Cart</Nav.Link>
+            <Nav.Link eventKey="link-1" href="/cart">
+              Cart
+            </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="/gift">Gift</Nav.Link>

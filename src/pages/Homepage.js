@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchingWines } from "../store/wines/actions";
+import { toCart } from "../store/cart/actions";
 import { selectHomepageLoading } from "../store/wines/selector";
 import { selectHomepageWines } from "../store/wines/selector";
 import { Card, Button } from "react-bootstrap";
@@ -18,6 +19,7 @@ export default function Homepage() {
 
   return (
     <div>
+      <h2 style={{ color: "#324a5f" }}>Wine because life is hard</h2>
       <div className="d-flex flex-wrap justify-content-center">
         {loading ? "Wine a minute please..." : null}
 
@@ -37,13 +39,16 @@ export default function Homepage() {
                 <div className="d-flex align-items-center justify-content-center">
                   <Card.Text>Price: {wine.price}</Card.Text>
                   <Button
+                    onClick={() => {
+                      dispatch(toCart({ wineId: wine.id }));
+                    }}
                     style={{
                       backgroundColor: "#6d597a",
                       borderColor: "#6d597a",
                       color: "white",
                     }}
                   >
-                    Buy
+                    Add to cart
                   </Button>
                 </div>
               </Card.Body>

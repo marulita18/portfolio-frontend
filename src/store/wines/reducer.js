@@ -2,7 +2,7 @@ import { START_LOADING, WINES_FETCHED } from "./actions";
 
 const initialState = {
   loading: true,
-  wines: [],
+  all: [],
 };
 
 export default function reducer(state = initialState, { type, payload }) {
@@ -16,7 +16,7 @@ export default function reducer(state = initialState, { type, payload }) {
     case WINES_FETCHED: {
       return {
         loading: false,
-        wines: payload,
+        all: payload,
       };
     }
 
