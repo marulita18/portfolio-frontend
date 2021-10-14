@@ -5,6 +5,7 @@ import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 import { useSelector } from "react-redux";
 import { selectToken } from "../../store/user/selector";
+import { NavLink } from "react-router-dom";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
@@ -22,17 +23,15 @@ export default function Navigation() {
       >
         <Nav style={{ width: "100%" }} fill>
           <Nav.Item>
-            <Nav.Link style={{ color: "white" }} href="/">
+            <NavLink style={{ color: "white" }} to="/">
               Home
-            </Nav.Link>
+            </NavLink>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-1" href="/cart">
-              Cart
-            </Nav.Link>
+            <NavLink to="/cart">Cart</NavLink>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/gift">Gift</Nav.Link>
+            <NavLink to="/gift">Gift</NavLink>
           </Nav.Item>
           {loginLogout}
         </Nav>

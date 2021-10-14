@@ -13,7 +13,7 @@ export default function reducer(state = initialState, { type, payload }) {
       const updatedItem = itemExists
         ? { ...itemExists, amount: itemExists.amount + 1 }
         : null;
-      console.log("Updated item", updatedItem);
+      // console.log("Updated item", updatedItem);
       const newState = updatedItem
         ? state.map((item) => {
             if (parseInt(item.wineId) !== parseInt(itemExists.wineId)) {
@@ -23,7 +23,7 @@ export default function reducer(state = initialState, { type, payload }) {
             }
           })
         : [...state, { ...payload, amount: 1 }];
-      console.log("my new state", newState);
+      // console.log("my new state", newState);
       return newState;
     }
 
@@ -35,14 +35,14 @@ export default function reducer(state = initialState, { type, payload }) {
       const updatedItem = itemToUpdate
         ? { ...itemToUpdate, amount: itemToUpdate.amount - 1 }
         : null;
-      console.log("updatedItem", updatedItem);
+      // console.log("updatedItem", updatedItem);
       const newState =
         updatedItem && updatedItem.amount > 0
           ? state.map((item) => {
-              console.log(
-                `Is ${item.wineId} equal to ${updatedItem.wineId}`,
-                item.wineId === updatedItem.wineId
-              );
+              // console.log(
+              //   `Is ${item.wineId} equal to ${updatedItem.wineId}`,
+              //   item.wineId === updatedItem.wineId
+              // );
               if (item.wineId !== updatedItem.wineId) {
                 return item;
               } else {
@@ -54,27 +54,8 @@ export default function reducer(state = initialState, { type, payload }) {
               return item.wineId !== updatedItem.wineId;
             })
           : state;
-      console.log("new state remove", newState);
+      // console.log("new state remove", newState);
       return newState;
-      // if (updatedItem && updatedItem.amount > 0) {
-      //   const newState = updatedItem
-      //     ? state.map((item) => {
-      //         console.log(
-      //           `Is ${item.wineId} equal to ${updatedItem.wineId}`,
-      //           item.wineId === updatedItem.wineId
-      //         );
-      //         if (item.wineId !== updatedItem.wineId) {
-      //           return item;
-      //         }  else {
-      //           return updatedItem;
-      //         }
-      //       })
-      //     : state;
-      //   console.log("new state remove", newState);
-      //   return newState;
-      // } else if (updatedItem && updatedItem.amount === 0 ){
-      //   state.filter
-      // }
     }
     default: {
       return state;

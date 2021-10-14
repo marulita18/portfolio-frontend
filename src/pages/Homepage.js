@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchingWines } from "../store/wines/actions";
 import { toCart } from "../store/cart/actions";
@@ -8,8 +8,10 @@ import { selectHomepageWines } from "../store/wines/selector";
 import { Card, Button } from "react-bootstrap";
 import ContactForm from "../components/ContactForm";
 import Gift from "../components/Gift";
+import { useHistory } from "react-router";
 
 export default function Homepage() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const wines = useSelector(selectHomepageWines);
   const loading = useSelector(selectHomepageLoading);
@@ -38,7 +40,16 @@ export default function Homepage() {
                 </Card.Title>
                 <Card.Text>{wine.description}.</Card.Text>
                 <div className="d-flex align-items-center justify-content-center">
-                  <Card.Text>Price: {wine.price}</Card.Text>
+                  <Card.Text
+                    style={{
+                      backgroundColor: "#1b2a41",
+                      color: "#ccc9dc",
+                      borderRadius: "50%",
+                      padding: "10px",
+                    }}
+                  >
+                    $ {wine.price}
+                  </Card.Text>
                   <Button
                     onClick={() => {
                       dispatch(toCart({ wineId: wine.id }));
@@ -51,7 +62,7 @@ export default function Homepage() {
                   >
                     Add to cart
                   </Button>
-                  <Button
+                  {/* <Button
                     onClick={() => {
                       dispatch(removeFromCart({ wineId: wine.id }));
                     }}
@@ -62,7 +73,7 @@ export default function Homepage() {
                     }}
                   >
                     Remove from cart
-                  </Button>
+                  </Button> */}
                 </div>
               </Card.Body>
             </Card>
