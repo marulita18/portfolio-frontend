@@ -8,8 +8,9 @@ export const toCart = (data) => ({
   payload: data,
 });
 
-export const removeFromCart = () => ({
+export const removeFromCart = (data) => ({
   type: REMOVE_FROM_CART,
+  payload: data,
 });
 
 export function purchase(data) {

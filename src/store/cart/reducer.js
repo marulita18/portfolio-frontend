@@ -8,40 +8,74 @@ export default function reducer(state = initialState, { type, payload }) {
     case ADDED_TO_CART: {
       // console.log("payload", payload);
       const itemExists = state.find((item) => {
-        // console.log(
-        //   `Is ${item.wineId} the same as ${payload.wineId}`,
-        //   item.wineId === payload.wineId
-        // );
-        return item.wineId === payload.wineId;
+        return parseInt(item.wineId) === parseInt(payload.wineId);
       });
-      // console.log("item exists?", itemExists);
       const updatedItem = itemExists
         ? { ...itemExists, amount: itemExists.amount + 1 }
-        : { ...payload, amount: 1 };
-      // console.log("Updated item", updatedItem);
-      const newState = itemExists
+        : null;
+      console.log("Updated item", updatedItem);
+      const newState = updatedItem
         ? state.map((item) => {
-            if (item.id !== itemExists.id) {
+            if (parseInt(item.wineId) !== parseInt(itemExists.wineId)) {
               return item;
             } else {
               return updatedItem;
             }
           })
-        : [...state, updatedItem];
+        : [...state, { ...payload, amount: 1 }];
       console.log("my new state", newState);
       return newState;
     }
 
-    // case  REMOVE_FROM_CART: {
-    //   const itemToUpdate = state.find((item) => {
-    //     return item.wineId === payload.wineId;
-    //   });
-    //   const updatedItem = itemToUpdate.amount - 1;
-    //   if(itemToUpdate.amount === 0) {
-    //     return state - itemToUpdate
-    //   }
-    //   return updatedItem
-    // }
+    case REMOVE_FROM_CART: {
+      const itemToUpdate = state.find((item) => {
+        return item.wineId === payload.wineId;
+      });
+
+      const updatedItem = itemToUpdate
+        ? { ...itemToUpdate, amount: itemToUpdate.amount - 1 }
+        : null;
+      console.log("updatedItem", updatedItem);
+      const newState =
+        updatedItem && updatedItem.amount > 0
+          ? state.map((item) => {
+              console.log(
+                `Is ${item.wineId} equal to ${updatedItem.wineId}`,
+                item.wineId === updatedItem.wineId
+              );
+              if (item.wineId !== updatedItem.wineId) {
+                return item;
+              } else {
+                return updatedItem;
+              }
+            })
+          : updatedItem && updatedItem.amount === 0
+          ? state.filter((item) => {
+              return item.wineId !== updatedItem.wineId;
+            })
+          : state;
+      console.log("new state remove", newState);
+      return newState;
+      // if (updatedItem && updatedItem.amount > 0) {
+      //   const newState = updatedItem
+      //     ? state.map((item) => {
+      //         console.log(
+      //           `Is ${item.wineId} equal to ${updatedItem.wineId}`,
+      //           item.wineId === updatedItem.wineId
+      //         );
+      //         if (item.wineId !== updatedItem.wineId) {
+      //           return item;
+      //         }  else {
+      //           return updatedItem;
+      //         }
+      //       })
+      //     : state;
+      //   console.log("new state remove", newState);
+      //   return newState;
+      // } else if (updatedItem && updatedItem.amount === 0 ){
+      //   state.filter
+      // }
+    }
     default: {
       return state;
     }
