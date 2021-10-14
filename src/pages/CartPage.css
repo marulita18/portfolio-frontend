@@ -1,0 +1,56 @@
+.Cart-container {
+  margin: 40px;
+  width: 80%;
+  height: 85%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px #6d597a;
+}
+
+.Cart-Items {
+  margin: auto;
+  width: 90%;
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-box {
+  width: 15%;
+  text-align: center;
+}
+.about {
+  height: 100%;
+}
+
+.title {
+  padding-top: 5px;
+  line-height: 10px;
+  font-size: 20px;
+  font-family: ‘Open Sans’;
+  font-weight: 700;
+  color: #202020;
+  list-style: none;
+}
+
+.amount {
+  text-align: right;
+  padding-top: 5px;
+  line-height: 10px;
+  font-size: 26px;
+  font-family: ‘Open Sans’;
+  font-weight: 500;
+  color: #202020;
+}
+
+.checkout {
+  float: right;
+  margin-right: 5%;
+  width: 28%;
+}
+.total {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

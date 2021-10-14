@@ -31,11 +31,11 @@ export default function reducer(state = initialState, { type, payload }) {
       const itemToUpdate = state.find((item) => {
         return item.wineId === payload.wineId;
       });
-
+      console.log("item to update", itemToUpdate);
       const updatedItem = itemToUpdate
         ? { ...itemToUpdate, amount: itemToUpdate.amount - 1 }
         : null;
-      // console.log("updatedItem", updatedItem);
+      console.log("updatedItem", updatedItem);
       const newState =
         updatedItem && updatedItem.amount > 0
           ? state.map((item) => {
@@ -49,7 +49,7 @@ export default function reducer(state = initialState, { type, payload }) {
                 return updatedItem;
               }
             })
-          : updatedItem && updatedItem.amount === 0
+          : updatedItem && updatedItem.amount <= 0
           ? state.filter((item) => {
               return item.wineId !== updatedItem.wineId;
             })

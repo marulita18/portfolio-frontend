@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchingWines } from "../store/wines/actions";
 import { toCart } from "../store/cart/actions";
-import { removeFromCart } from "../store/cart/actions";
+
 import { selectHomepageLoading } from "../store/wines/selector";
 import { selectHomepageWines } from "../store/wines/selector";
 import { Card, Button } from "react-bootstrap";
@@ -62,18 +62,6 @@ export default function Homepage() {
                   >
                     Add to cart
                   </Button>
-                  {/* <Button
-                    onClick={() => {
-                      dispatch(removeFromCart({ wineId: wine.id }));
-                    }}
-                    style={{
-                      backgroundColor: "#6d597a",
-                      borderColor: "#6d597a",
-                      color: "white",
-                    }}
-                  >
-                    Remove from cart
-                  </Button> */}
                 </div>
               </Card.Body>
             </Card>
