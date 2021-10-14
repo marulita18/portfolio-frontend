@@ -1,0 +1,15 @@
+.logo {
+  max-width: 150px;
+  max-height: 70px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #ccc9dc;
+  font-weight: 800%;
+  transition: all 100ms ease-in-out;
+}
+
+.navLink:hover {
+  color: #1b2a41;
+}

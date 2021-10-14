@@ -6,6 +6,7 @@ import LoggedOut from "./LoggedOut";
 import { useSelector } from "react-redux";
 import { selectToken } from "../../store/user/selector";
 import { NavLink } from "react-router-dom";
+import "./navigation.css";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
@@ -22,16 +23,25 @@ export default function Navigation() {
         }}
       >
         <Nav style={{ width: "100%" }} fill>
+          <img
+            src="https://res.cloudinary.com/dwr3lgrza/image/upload/v1634235717/WhatsApp_Image_2021-10-12_at_18.24_uuj8gd.jpg"
+            alt="logo"
+            className="logo"
+          />
           <Nav.Item>
-            <NavLink style={{ color: "white" }} to="/">
+            <NavLink className="navLink active" to="/">
               Home
             </NavLink>
           </Nav.Item>
           <Nav.Item>
-            <NavLink to="/cart">Cart</NavLink>
+            <NavLink className="navLink active" to="/cart">
+              Cart
+            </NavLink>
           </Nav.Item>
           <Nav.Item>
-            <NavLink to="/gift">Gift</NavLink>
+            <NavLink className="navLink active" to="/about">
+              About us
+            </NavLink>
           </Nav.Item>
           {loginLogout}
         </Nav>

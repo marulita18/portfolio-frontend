@@ -8,7 +8,7 @@ import Homepage from "./pages/Homepage";
 import Navigation from "./components/navigation/index";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
-import GiftCardPage from "./pages/GiftCardPage";
+import AboutPage from "./pages/AboutPage";
 import CartPage from "./pages/CartPage";
 import Footer from "./components/footer";
 import "./App.css";
@@ -26,10 +26,10 @@ function App() {
         <Route exact path="/" component={Homepage} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
-        <Route path="/gift" component={GiftCardPage} />
+        <Route path="/about" component={AboutPage} />
         <Route path="/cart" component={CartPage} />
       </Switch>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

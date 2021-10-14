@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchingWines } from "../store/wines/actions";
 import { toCart } from "../store/cart/actions";
@@ -8,10 +8,8 @@ import { selectHomepageWines } from "../store/wines/selector";
 import { Card, Button } from "react-bootstrap";
 import ContactForm from "../components/ContactForm";
 import Gift from "../components/Gift";
-import { useHistory } from "react-router";
 
 export default function Homepage() {
-  const history = useHistory();
   const dispatch = useDispatch();
   const wines = useSelector(selectHomepageWines);
   const loading = useSelector(selectHomepageLoading);
