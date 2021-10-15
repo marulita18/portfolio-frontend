@@ -11,7 +11,8 @@ export default function LoggedIn() {
 
   return (
     <div className="d-flex align-items-center flex-wrap justify-content-right">
-      <Nav.Item>{user.name}</Nav.Item>
+      <Nav.Item>{user.name} </Nav.Item>
+
       <Button
         style={{
           backgroundColor: "white",

@@ -1,4 +1,4 @@
-import { START_LOADING, WINES_FETCHED } from "./actions";
+import { START_LOADING, WINES_FETCHED, WINE_ADDED } from "./actions";
 
 const initialState = {
   loading: true,
@@ -17,6 +17,12 @@ export default function reducer(state = initialState, { type, payload }) {
       return {
         loading: false,
         all: payload,
+      };
+    }
+    case WINE_ADDED: {
+      return {
+        loading: false,
+        all: [...state, payload],
       };
     }
 
