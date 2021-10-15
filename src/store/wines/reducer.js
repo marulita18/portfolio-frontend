@@ -1,4 +1,9 @@
-import { START_LOADING, WINES_FETCHED, WINE_ADDED } from "./actions";
+import {
+  START_LOADING,
+  WINES_FETCHED,
+  WINE_ADDED,
+  WINE_EDITED,
+} from "./actions";
 
 const initialState = {
   loading: true,
@@ -23,6 +28,15 @@ export default function reducer(state = initialState, { type, payload }) {
       return {
         loading: false,
         all: [...state, payload],
+      };
+    }
+    case WINE_EDITED: {
+      const newProduct = state.all.map((wine) => {
+        return wine.id === payload.id;
+      });
+      return {
+        ...state,
+        all: [...state.all, newProduct],
       };
     }
 

@@ -2,21 +2,23 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { Col } from "react-bootstrap";
-import { addWine } from "../store/wines/actions";
+import { editWine } from "../store/wines/actions";
 import { useDispatch } from "react-redux";
 
-export default function AddWineForm() {
+export default function EditWineForm(props) {
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
-  const [picture, setPicture] = useState("");
-  const [price, setPrice] = useState(0);
-  const [description, setDescription] = useState("");
-  const [categoryId, setCategoryId] = useState("");
+  const { wine } = props;
+  const [updateWine, setUpdateWine] = useState(wine);
 
   function submitForm(event) {
     event.preventDefault();
-    dispatch(addWine(name, picture, price, description, categoryId));
+    dispatch(editWine(updateWine));
   }
+
+  function onChangeHandler(event) {
+    setUpdateWine({ ...updateWine, [event.target.name]: event.target.value });
+  }
+  console.log("my update", updateWine);
   return (
     <div>
       <Form style={{ marginBottom: "160px", marginTop: "100px" }}>
@@ -26,10 +28,10 @@ export default function AddWineForm() {
           </Form.Label>
           <Col sm={10}>
             <Form.Control
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-              placeholder="Name of new wine"
-              required
+              name="name"
+              value={updateWine.name}
+              onChange={(event) => onChangeHandler(event)}
+              placeholder="Edit name"
             />
           </Col>
         </Form.Group>
@@ -44,10 +46,10 @@ export default function AddWineForm() {
           </Form.Label>
           <Col sm={10}>
             <Form.Control
-              value={picture}
-              onChange={(event) => setPicture(event.target.value)}
-              placeholder="Please add a pic"
-              required
+              name="picture"
+              value={updateWine.picture}
+              onChange={(event) => onChangeHandler(event)}
+              placeholder="Edit pic"
             />
           </Col>
         </Form.Group>
@@ -61,10 +63,10 @@ export default function AddWineForm() {
           </Form.Label>
           <Col sm={10}>
             <Form.Control
-              value={price}
-              onChange={(event) => setPrice(event.target.value)}
-              placeholder="Please add a price"
-              required
+              name="price"
+              value={updateWine.price}
+              onChange={(event) => onChangeHandler(event)}
+              placeholder="Edit price"
             />
           </Col>
         </Form.Group>
@@ -78,10 +80,10 @@ export default function AddWineForm() {
           </Form.Label>
           <Col sm={10}>
             <Form.Control
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
-              placeholder="Please add a description"
-              required
+              name="description"
+              value={updateWine.description}
+              onChange={(event) => onChangeHandler(event)}
+              placeholder="Edit description"
             />
           </Col>
         </Form.Group>
@@ -95,10 +97,10 @@ export default function AddWineForm() {
           </Form.Label>
           <Col sm={10}>
             <Form.Control
-              value={categoryId}
-              onChange={(event) => setCategoryId(event.target.value)}
-              placeholder="White: 1, Red: 2, Rose: 3"
-              required
+              name="categoryId"
+              value={updateWine.categoryId}
+              onChange={(event) => onChangeHandler(event)}
+              placeholder="Edit category: White: 1, Red: 2, Rose: 3"
             />
           </Col>
         </Form.Group>

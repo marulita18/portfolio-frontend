@@ -4,6 +4,8 @@ import { showMessageWithTimeout } from "../appState/actions";
 export const START_LOADING = "START_LOADING";
 export const WINES_FETCHED = "WINES_FETCHED";
 export const WINE_ADDED = "WINE_ADDED";
+export const WINE_REMOVED = "WINE_REMOVED";
+export const WINE_EDITED = "WINE_EDITED";
 
 export const startLoading = () => {
   return {
@@ -58,6 +60,43 @@ export function addWine(name, picture, price, description, categoryId) {
       dispatch(
         showMessageWithTimeout("success", false, "Auction created!", 1500)
       );
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+}
+
+export const wineRemoved = (data) => {
+  return {
+    type: WINE_REMOVED,
+  };
+};
+
+export function removeWine(id) {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.delete(`${apiUrl}/wines/${id}`);
+      dispatch(wineRemoved(response.data));
+      dispatch(showMessageWithTimeout("success", false, "Wine removed", 1500));
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+}
+
+export const wineEdited = (data) => {
+  return {
+    type: WINE_EDITED,
+    payload: data,
+  };
+};
+
+export function editWine(data) {
+  return async (dispatch, getState) => {
+    console.log("our data", data);
+    try {
+      const response = await axios.put(`${apiUrl}/wines/${data.id}`, { data });
+      dispatch(wineEdited(response.data));
     } catch (e) {
       console.log(e.message);
     }
