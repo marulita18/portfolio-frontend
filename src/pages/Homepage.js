@@ -7,7 +7,6 @@ import { selectHomepageLoading } from "../store/wines/selector";
 import { selectHomepageWines } from "../store/wines/selector";
 import { Card, Button } from "react-bootstrap";
 import ContactForm from "../components/ContactForm";
-import Gift from "../components/Gift";
 
 export default function Homepage() {
   const dispatch = useDispatch();
@@ -28,7 +27,7 @@ export default function Homepage() {
           return (
             <Card
               key={wine.id}
-              style={{ width: "18rem", maxWidth: "18rem" }}
+              style={{ width: "30rem", maxWidth: "30rem" }}
               className="row justify-content-center m-2"
             >
               <Card.Img variant="right" src={wine.picture} />
@@ -66,29 +65,18 @@ export default function Homepage() {
           );
         })}
       </div>
-      <div style={{ display: "flex" }}>
-        <div
-          style={{
-            border: "black, solid, 1px",
-            margin: "30px",
-            padding: "40px",
-            display: "flex",
-            justifyContent: "flex-start",
-          }}
-        >
-          <Gift />
-        </div>
-        <div
-          style={{
-            border: "black, solid, 1px",
-            margin: "30px",
-            padding: "40px",
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
-        >
-          <ContactForm />
-        </div>
+
+      <div
+        style={{
+          border: "black, solid, 1px",
+          marginRight: "20px",
+          marginBottom: "40px",
+          padding: "40px",
+          display: "flex",
+          justifyContent: "flex-start",
+        }}
+      >
+        <ContactForm />
       </div>
     </div>
   );

@@ -16,6 +16,7 @@ export default function CartPage() {
         <h3 className="heading">Shopping cart</h3>
       </div>
       <div>
+        {/* {!cart ? <Link to="/">Get some wines!</Link> : null} */}
         {cart.map((item) => {
           return (
             <div className="Cart-Items" key={item.id}>
@@ -56,11 +57,9 @@ export default function CartPage() {
               >
                 Remove
               </Button>
-              {/* {!item ? <Link to="/">Get some wines!</Link> : null} */}
             </div>
           );
         })}
-
         <Button
           style={{
             marginTop: "20px",
