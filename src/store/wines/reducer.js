@@ -3,11 +3,15 @@ import {
   WINES_FETCHED,
   WINE_ADDED,
   WINE_EDITED,
+  CATEGORIES_FETCHED,
+  CATEGORY_ID_CHANGED,
 } from "./actions";
 
 const initialState = {
   loading: true,
   all: [],
+  categories: [],
+  categoryId: null,
 };
 
 export default function reducer(state = initialState, { type, payload }) {
@@ -20,8 +24,15 @@ export default function reducer(state = initialState, { type, payload }) {
     }
     case WINES_FETCHED: {
       return {
+        ...state,
         loading: false,
         all: payload,
+      };
+    }
+    case CATEGORIES_FETCHED: {
+      return {
+        ...state,
+        categories: payload,
       };
     }
     case WINE_ADDED: {
@@ -39,7 +50,12 @@ export default function reducer(state = initialState, { type, payload }) {
         all: [...state.all, newProduct],
       };
     }
-
+    case CATEGORY_ID_CHANGED: {
+      return {
+        ...state,
+        categoryId: payload,
+      };
+    }
     default: {
       return state;
     }

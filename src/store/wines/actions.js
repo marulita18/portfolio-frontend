@@ -6,6 +6,8 @@ export const WINES_FETCHED = "WINES_FETCHED";
 export const WINE_ADDED = "WINE_ADDED";
 export const WINE_REMOVED = "WINE_REMOVED";
 export const WINE_EDITED = "WINE_EDITED";
+export const CATEGORIES_FETCHED = "CATEGORIES_FETCHED";
+export const CATEGORY_ID_CHANGED = "CATEGORY_ID_CHANGED";
 
 export const startLoading = () => {
   return {
@@ -20,15 +22,46 @@ export const winesFetched = (data) => {
   };
 };
 
-export function fetchingWines() {
+export function fetchingWines(categoryId) {
   return async (dispatch, getState) => {
     dispatch(startLoading);
     try {
-      const response = await axios.get(`${apiUrl}/wines`);
+      const response = await axios.get(
+        `${apiUrl}/wines${categoryId ? "?categoryId=" + categoryId : ""}`
+      );
       dispatch(winesFetched(response.data));
     } catch (e) {
       console.log(e.message);
     }
+  };
+}
+
+export const categoriesFetched = (data) => {
+  return {
+    type: CATEGORIES_FETCHED,
+    payload: data,
+  };
+};
+
+export function fetchingCategories() {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(`${apiUrl}/wines/categories`);
+      dispatch(categoriesFetched(response.data));
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+}
+
+const categoryIdChanged = (data) => ({
+  type: CATEGORY_ID_CHANGED,
+  payload: data,
+});
+
+export function setCategoryId(categoryId) {
+  return async (dispatch, getState) => {
+    dispatch(categoryIdChanged(categoryId));
   };
 }
 
