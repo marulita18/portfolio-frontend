@@ -6,11 +6,18 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 ReactDOM.render(
   <Router>
     <Provider store={store}>
-      <App />
+      <PayPalScriptProvider
+        options={{
+          "client-id":
+            "AbMF1Eol2YIPbIPQ5w9CMl8zPF6N7QfuIuH0Dy3FUoX-bs8vEZMsGbsbVw900ji1C239HiehS3DhiKb4",
+        }}
+      >
+        <App />
+      </PayPalScriptProvider>
     </Provider>
   </Router>,
   document.getElementById("root")

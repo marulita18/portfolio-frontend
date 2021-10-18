@@ -6,10 +6,12 @@ import { purchase } from "../store/orders/actions";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./CartPage.css";
+import { PayPalButtons } from "@paypal/react-paypal-js";
 
 export default function CartPage() {
   const dispatch = useDispatch();
   const cart = useSelector(getCartWithWines);
+  const [showPaypal, setShowPaypal] = useState(false);
   return (
     <div className="Cart-container">
       <div className="header">
@@ -73,11 +75,28 @@ export default function CartPage() {
               color: "white",
             }}
             onClick={() => {
-              dispatch(purchase());
+              // dispatch(purchase());
+              setShowPaypal(true);
             }}
           >
             Purchase!
           </Button>
+          {showPaypal && (
+            <PayPalButtons
+              style={{ layout: "horizontal" }}
+              createOrder={(data, actions) => {
+                return actions.order.create({
+                  purchase_units: [
+                    {
+                      amount: {
+                        value: "10.00",
+                      },
+                    },
+                  ],
+                });
+              }}
+            />
+          )}
         </div>
       )}
     </div>

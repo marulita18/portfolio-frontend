@@ -14,7 +14,6 @@ import {
 } from "../store/wines/selector";
 import { selectUser } from "../store/user/selector";
 import ContactForm from "../components/ContactForm";
-import AddWineForm from "../components/AddWineForm";
 import WineCard from "../components/WineCard";
 
 export default function Homepage() {
@@ -64,20 +63,8 @@ export default function Homepage() {
           return <WineCard key={wine.id} wine={wine} user={user} />;
         })}
       </div>
-      {user.token && user.isAdmin ? (
-        <div
-          style={{
-            border: "black, solid, 1px",
-            marginRight: "80px",
-            marginBottom: "40px",
-            padding: "40px",
-            display: "flex",
-            justifyContent: "flex-start",
-          }}
-        >
-          <AddWineForm>Add wines</AddWineForm>
-        </div>
-      ) : (
+
+      {user.token && !user.isAdmin ? (
         <div
           style={{
             border: "black, solid, 1px",
@@ -90,7 +77,7 @@ export default function Homepage() {
         >
           <ContactForm />
         </div>
-      )}
+      ) : null}
     </div>
   );
 }

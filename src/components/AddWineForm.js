@@ -18,8 +18,8 @@ export default function AddWineForm() {
     dispatch(addWine(name, picture, price, description, categoryId));
   }
   return (
-    <div>
-      <Form style={{ marginBottom: "160px", marginTop: "100px" }}>
+    <div style={{ display: "block", width: "100%" }}>
+      <Form>
         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
           <Form.Label column sm={2}>
             Name

@@ -11,6 +11,7 @@ import SignUp from "./pages/Signup";
 import AboutPage from "./pages/AboutPage";
 import CartPage from "./pages/CartPage";
 import Footer from "./components/footer";
+import AdminDashboard from "./components/AdminDashboard";
 import "./App.css";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/about" component={AboutPage} />
         <Route path="/cart" component={CartPage} />
+        <Route path="/admin" component={AdminDashboard} />
       </Switch>
       <Footer />
     </div>

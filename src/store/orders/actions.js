@@ -2,6 +2,7 @@ import { showMessageWithTimeout } from "../appState/actions";
 import axios from "axios";
 import { apiUrl } from "../../config/constants";
 export const CREATED_ORDER = "CREATED_ORDER";
+export const ORDERS_FETCHED = "ORDERS_FETCHED";
 
 export const createOrder = (data) => ({
   type: CREATED_ORDER,
@@ -26,6 +27,26 @@ export function purchase() {
         "Thank you for your purchase!",
         1500
       );
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+}
+
+export const ordersFetched = (data) => {
+  return {
+    type: ORDERS_FETCHED,
+    payload: data,
+  };
+};
+
+export function fetchingOrders() {
+  console.log("im here");
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(`${apiUrl}/order`);
+      console.log("my response", response.data);
+      dispatch(ordersFetched(response.data));
     } catch (e) {
       console.log(e.message);
     }
