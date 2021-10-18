@@ -40,6 +40,12 @@ export default function Homepage() {
       <select
         name="select"
         onChange={(event) => dispatch(setCategoryId(event.target.value))}
+        className="d-flex flex-wrap justify-content-start"
+        style={{
+          margin: "20px",
+          borderRadius: "2px",
+          backgroundColor: "#ccc9dc",
+        }}
       >
         <option value="">All</option>
         {categories.map((category) => {

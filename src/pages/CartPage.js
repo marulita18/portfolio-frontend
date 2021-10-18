@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getCartWithWines } from "../store/cart/selector";
-import { removeFromCart, purchase } from "../store/cart/actions";
+import { removeFromCart } from "../store/cart/actions";
+import { purchase } from "../store/orders/actions";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./CartPage.css";
@@ -9,7 +10,6 @@ import "./CartPage.css";
 export default function CartPage() {
   const dispatch = useDispatch();
   const cart = useSelector(getCartWithWines);
-
   return (
     <div className="Cart-container">
       <div className="header">
@@ -73,7 +73,7 @@ export default function CartPage() {
               color: "white",
             }}
             onClick={() => {
-              dispatch(purchase(cart));
+              dispatch(purchase());
             }}
           >
             Purchase!

@@ -31,7 +31,7 @@ export const signUp = (name, email, password, artist) => {
     dispatch(appLoading());
 
     try {
-      const response = await axios.post(`${apiUrl}/signup`, {
+      const response = await axios.post(`${apiUrl}/auth/signup`, {
         name,
         email,
         password,

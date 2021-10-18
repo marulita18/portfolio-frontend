@@ -29,17 +29,22 @@ export default function Navigation() {
             className="logo"
           />
           <Nav.Item>
-            <NavLink className="navLink active" to="/">
+            <NavLink
+              className="navLink"
+              activeClassName="active"
+              to="/"
+              exact={true}
+            >
               Home
             </NavLink>
           </Nav.Item>
           <Nav.Item>
-            <NavLink className="navLink active" to="/cart">
+            <NavLink className="navLink" activeClassName="active" to="/cart">
               Cart
             </NavLink>
           </Nav.Item>
           <Nav.Item>
-            <NavLink className="navLink active" to="/about">
+            <NavLink className="navLink" activeClassName="active" to="/about">
               About us
             </NavLink>
           </Nav.Item>

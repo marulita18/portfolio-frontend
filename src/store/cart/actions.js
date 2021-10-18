@@ -13,26 +13,3 @@ export const removeFromCart = (data) => ({
   type: REMOVE_FROM_CART,
   payload: data,
 });
-
-export function purchase(data) {
-  return async (dispatch, getState) => {
-    try {
-      const token = getState().user.token;
-      const response = await axios.post(
-        `${apiUrl}/order`,
-        { data },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      dispatch(
-        showMessageWithTimeout(
-          "success",
-          false,
-          "Thank you for your purchase!",
-          1500
-        )
-      );
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
-}
