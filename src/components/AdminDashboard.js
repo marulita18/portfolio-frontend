@@ -6,7 +6,7 @@ import AddWineForm from "./AddWineForm";
 import { fetchingWines } from "../store/wines/actions";
 import { selectHomepageWines } from "../store/wines/selector";
 import WineCard from "./WineCard";
-import Orders from "./Orders";
+import { Link } from "react-router-dom";
 
 export default function AdminDashboard() {
   const dispatch = useDispatch();
@@ -14,7 +14,6 @@ export default function AdminDashboard() {
   const user = useSelector(selectUser);
   const wines = useSelector(selectHomepageWines);
   const [showForm, setShowForm] = useState(false);
-  const [showOrders, setShowOrders] = useState(false);
 
   useEffect(() => {
     if (!user.token || !user.isAdmin) {
@@ -38,14 +37,15 @@ export default function AdminDashboard() {
               borderRadius: "2px",
               backgroundColor: "#ccc9dc",
               borderColor: "#ccc9dc",
+              padding: "10px",
             }}
           >
             Add Wine
           </button>
         )}
         {showForm && <AddWineForm />}
-        <button
-          onClick={() => setShowOrders(!showOrders)}
+        <Link
+          to="/orders"
           className="justify-content-end"
           style={{
             margin: "10px",
@@ -53,13 +53,13 @@ export default function AdminDashboard() {
             backgroundColor: "#1b2a41",
             borderColor: "#1b2a41",
             color: "#ccc9dc",
+            textDecoration: "none",
+            padding: "10px",
           }}
         >
           See orders
-        </button>
-        {showOrders && <Orders />}
+        </Link>
       </div>
-
       <div className="d-flex flex-wrap justify-content-center">
         {wines.map((wine) => {
           return <WineCard key={wine.id} wine={wine} user={user} />;

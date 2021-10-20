@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toCart } from "../store/cart/actions";
 import { removeWine } from "../store/wines/actions";
-
+import { getCartWithWines } from "../store/cart/selector";
 import EditWineForm from "./EditWineForm";
 import { Card, Button } from "react-bootstrap";
 
 export default function WineCard(props) {
   const dispatch = useDispatch();
+  const cart = useSelector(getCartWithWines);
   const { wine, user } = props;
   const [showEditForm, setShowEditForm] = useState(false);
 
@@ -75,6 +76,17 @@ export default function WineCard(props) {
               >
                 Add to cart
               </Button>
+              {/* {cart.filter((item) => {
+                return item.id === wine.id;
+              })} */}
+              {/* {cart.map((item) => {
+                return <div key={item.id}>{item.amount} </div>;
+              })} */}
+              <img
+                src="https://res.cloudinary.com/dwr3lgrza/image/upload/v1634646109/icons/cart-fill_kpeqky.svg"
+                alt="cart logo"
+                style={{ maxWidth: "100px" }}
+              />
             </div>
           )}
         </div>

@@ -99,17 +99,23 @@ export function addWine(name, picture, price, description, categoryId) {
   };
 }
 
-export const wineRemoved = (data) => {
+export const wineRemoved = (id) => {
   return {
     type: WINE_REMOVED,
+    payload: id,
   };
 };
 
 export function removeWine(id) {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.delete(`${apiUrl}/wines/${id}`);
-      dispatch(wineRemoved(response.data));
+      const token = getState().user.token;
+      const response = await axios.delete(`${apiUrl}/wines/${id}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+      dispatch(wineRemoved(id));
       dispatch(showMessageWithTimeout("success", false, "Wine removed", 1500));
     } catch (e) {
       console.log(e.message);
@@ -127,8 +133,17 @@ export const wineEdited = (data) => {
 export function editWine(data) {
   return async (dispatch, getState) => {
     console.log("our data", data);
+    const token = getState().user.token;
     try {
-      const response = await axios.put(`${apiUrl}/wines/${data.id}`, { data });
+      const response = await axios.put(
+        `${apiUrl}/wines/${data.id}`,
+        { data },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
       dispatch(wineEdited(response.data));
     } catch (e) {
       console.log(e.message);

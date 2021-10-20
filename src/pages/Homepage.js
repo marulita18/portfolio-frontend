@@ -69,8 +69,8 @@ export default function Homepage() {
           style={{
             border: "black, solid, 1px",
             marginRight: "20px",
-            marginBottom: "40px",
-            padding: "40px",
+            marginBottom: "10px",
+            padding: "20px",
             display: "flex",
             justifyContent: "flex-start",
           }}

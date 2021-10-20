@@ -5,6 +5,7 @@ import {
   WINE_EDITED,
   CATEGORIES_FETCHED,
   CATEGORY_ID_CHANGED,
+  WINE_REMOVED,
 } from "./actions";
 
 const initialState = {
@@ -42,18 +43,29 @@ export default function reducer(state = initialState, { type, payload }) {
       };
     }
     case WINE_EDITED: {
-      const newProduct = state.all.map((wine) => {
-        return wine.id === payload.id;
+      const updatedList = state.all.map((wine) => {
+        if (wine.id === payload.id) {
+          return payload;
+        } else {
+          return wine;
+        }
       });
       return {
         ...state,
-        all: [...state.all, newProduct],
+        all: updatedList,
       };
     }
     case CATEGORY_ID_CHANGED: {
       return {
         ...state,
         categoryId: payload,
+      };
+    }
+    case WINE_REMOVED: {
+      const filteredWines = state.all.filter((w) => w.id !== payload);
+      return {
+        ...state,
+        all: filteredWines,
       };
     }
     default: {

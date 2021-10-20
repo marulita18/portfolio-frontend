@@ -1,0 +1,9 @@
+.body {
+  min-height: calc(75vh - 40px);
+}
+
+.table {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+}

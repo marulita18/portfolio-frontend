@@ -4,11 +4,13 @@ import { Nav } from "react-bootstrap";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 import { useSelector } from "react-redux";
+import { getCartWithWines } from "../../store/cart/selector";
 import { selectToken } from "../../store/user/selector";
 import { NavLink } from "react-router-dom";
 import "./navigation.css";
 
 export default function Navigation() {
+  const cart = useSelector(getCartWithWines);
   const token = useSelector(selectToken);
   const loginLogout = token ? <LoggedIn /> : <LoggedOut />;
 
@@ -38,11 +40,18 @@ export default function Navigation() {
               Home
             </NavLink>
           </Nav.Item>
-          <Nav.Item>
-            <NavLink className="navLink" activeClassName="active" to="/cart">
-              Cart
-            </NavLink>
-          </Nav.Item>
+          <div className="wrapper">
+            <Nav.Item>
+              <NavLink
+                className="navLink cart-items"
+                activeClassName="active"
+                to="/cart"
+              >
+                <span> {cart.length > 0 ? cart.length : null} </span>
+                Cart
+              </NavLink>
+            </Nav.Item>
+          </div>
           <Nav.Item>
             <NavLink className="navLink" activeClassName="active" to="/about">
               About us

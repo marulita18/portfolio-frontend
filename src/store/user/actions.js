@@ -54,7 +54,7 @@ export const signUp = (name, email, password, artist) => {
   };
 };
 
-export const login = (email, password) => {
+export const login = (email, password, redirectHomepage) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
     try {
@@ -64,6 +64,7 @@ export const login = (email, password) => {
       });
 
       dispatch(loginSuccess(response.data));
+      redirectHomepage();
       dispatch(showMessageWithTimeout("success", false, "welcome back!", 1500));
       dispatch(appDoneLoading());
     } catch (error) {

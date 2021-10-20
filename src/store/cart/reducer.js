@@ -1,10 +1,13 @@
-import { ADDED_TO_CART } from "./actions";
-import { REMOVE_FROM_CART } from "./actions";
+import { ADDED_TO_CART, REMOVE_FROM_CART, EMPTY_CART } from "./actions";
 
 const initialState = [];
 
 export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
+    case EMPTY_CART: {
+      console.log("here");
+      return [];
+    }
     case ADDED_TO_CART: {
       // console.log("payload", payload);
       const itemExists = state.find((item) => {

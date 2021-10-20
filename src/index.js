@@ -14,6 +14,7 @@ ReactDOM.render(
         options={{
           "client-id":
             "AbMF1Eol2YIPbIPQ5w9CMl8zPF6N7QfuIuH0Dy3FUoX-bs8vEZMsGbsbVw900ji1C239HiehS3DhiKb4",
+          locale: "en_AR",
         }}
       >
         <App />
