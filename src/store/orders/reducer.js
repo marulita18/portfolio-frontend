@@ -6,9 +6,10 @@ const initialState = {
 export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
     case CREATED_ORDER: {
+      console.log("reducer", payload);
       return {
         ...state,
-        allOrders: [...state, payload],
+        all: [...state.all, payload],
       };
     }
     case ORDERS_FETCHED: {

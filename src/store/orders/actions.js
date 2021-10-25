@@ -4,6 +4,7 @@ import { apiUrl } from "../../config/constants";
 import { emptyCart } from "../cart/actions";
 export const CREATED_ORDER = "CREATED_ORDER";
 export const ORDERS_FETCHED = "ORDERS_FETCHED";
+export const UPDATED_ORDER = "UPDATED_ORDER";
 
 export const createOrder = (data) => ({
   type: CREATED_ORDER,
@@ -22,6 +23,7 @@ export function purchase() {
       );
 
       dispatch(createOrder(response.data));
+      console.log("my response");
       dispatch(
         showMessageWithTimeout(
           "success",
@@ -45,12 +47,29 @@ export const ordersFetched = (data) => {
 };
 
 export function fetchingOrders() {
-  // console.log("im here");
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(`${apiUrl}/order`);
-      console.log("my response", response.data);
       dispatch(ordersFetched(response.data));
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+}
+
+export const orderUpdated = (data) => {
+  return {
+    type: UPDATED_ORDER,
+    payload: data,
+  };
+};
+
+export function updatingOrders(data) {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.patch(`${apiUrl}/order/${data.id}`, data);
+      console.log("response action", response);
+      // dispatch(orderUpdated(response.data.status));
     } catch (e) {
       console.log(e.message);
     }

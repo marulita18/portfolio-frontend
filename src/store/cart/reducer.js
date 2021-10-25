@@ -5,7 +5,6 @@ const initialState = [];
 export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
     case EMPTY_CART: {
-      console.log("here");
       return [];
     }
     case ADDED_TO_CART: {

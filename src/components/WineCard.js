@@ -76,17 +76,28 @@ export default function WineCard(props) {
               >
                 Add to cart
               </Button>
-              {/* {cart.filter((item) => {
-                return item.id === wine.id;
-              })} */}
-              {/* {cart.map((item) => {
-                return <div key={item.id}>{item.amount} </div>;
-              })} */}
-              <img
-                src="https://res.cloudinary.com/dwr3lgrza/image/upload/v1634646109/icons/cart-fill_kpeqky.svg"
-                alt="cart logo"
-                style={{ maxWidth: "100px" }}
-              />
+              <div
+                style={{ position: "relative", top: "-25px", right: "-20px" }}
+              >
+                <span
+                  style={{
+                    maxWidth: "100px",
+                    position: "absolute",
+                    top: "-6px",
+                    right: "-8px",
+                  }}
+                >
+                  {cart
+                    .filter((item) => {
+                      return item.wineId === wine.id;
+                    })
+                    .map((i) => i.amount)}
+                  <img
+                    src="https://res.cloudinary.com/dwr3lgrza/image/upload/v1634646109/icons/cart-fill_kpeqky.svg"
+                    alt="cart logo"
+                  />{" "}
+                </span>
+              </div>
             </div>
           )}
         </div>

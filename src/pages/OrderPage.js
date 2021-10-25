@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { selectUser } from "../store/user/selector";
-import { fetchingOrders } from "../store/orders/actions";
+import { fetchingOrders, updatingOrders } from "../store/orders/actions";
 import { selectOrders } from "../store/orders/selector";
 import "./OrderPage.css";
 
@@ -22,6 +22,8 @@ export default function OrderPage() {
     dispatch(fetchingOrders());
   }, [dispatch]);
 
+  // dispatch(updatingOrders( ));
+
   return (
     <div className="body">
       <h2>Orders</h2>
@@ -40,6 +42,9 @@ export default function OrderPage() {
                 <div className="col-md-4 border">
                   <input
                     type="checkbox"
+                    onChange={() =>
+                      dispatch(updatingOrders({ id: order.id, status: "done" }))
+                    }
                     className="form-check-input"
                     id="defaultCheck1"
                   ></input>

@@ -13,11 +13,12 @@ export default function Navigation() {
   const cart = useSelector(getCartWithWines);
   const token = useSelector(selectToken);
   const loginLogout = token ? <LoggedIn /> : <LoggedOut />;
+  // console.log("lenght", cart[0].amount);
 
   return (
     <div>
       <Navbar
-        className="row justify-content-around"
+        className="row justify-content-around align-items-center"
         style={{
           padding: "20px",
           border: "black, solid, 1px",
@@ -47,7 +48,12 @@ export default function Navigation() {
                 activeClassName="active"
                 to="/cart"
               >
-                <span> {cart.length > 0 ? cart.length : null} </span>
+                <span>
+                  {" "}
+                  {/* {cart[0].amount && cart[0].amount > 0
+                    ? cart[0].amount
+                    : null}{" "} */}
+                </span>
                 Cart
               </NavLink>
             </Nav.Item>
