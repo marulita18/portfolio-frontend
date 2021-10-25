@@ -90,9 +90,7 @@ export function addWine(name, picture, price, description, categoryId) {
         }
       );
       dispatch(wineAdded(response.data));
-      dispatch(
-        showMessageWithTimeout("success", false, "Auction created!", 1500)
-      );
+      dispatch(showMessageWithTimeout("success", false, "Thank you!", 1500));
     } catch (e) {
       console.log(e.message);
     }

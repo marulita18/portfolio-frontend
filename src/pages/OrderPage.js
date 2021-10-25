@@ -22,32 +22,62 @@ export default function OrderPage() {
     dispatch(fetchingOrders());
   }, [dispatch]);
 
-  // dispatch(updatingOrders( ));
+  function approvedOnclickHandler(orders) {
+    const data = { id: orders.id, status: "done" };
+    dispatch(updatingOrders(data));
+  }
+
+  function cancelOnclickHandler(orders) {
+    const data = { id: orders.id, status: "cancelled" };
+    dispatch(updatingOrders(data));
+  }
 
   return (
     <div className="body">
       <h2>Orders</h2>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-3 border">
+            <strong>Order Id</strong>
+          </div>
+          <div className="col-md-3 border">
+            {" "}
+            <strong>Order status </strong>
+          </div>
+          <div className="col-md-3 border"> </div>
+          <div className="col-md-3 border"> </div>
+        </div>
+      </div>
       {orders &&
         orders.map((order) => {
           return (
             <div key={order.id} className="container">
+              {/* <div className="row">
+                <div className="col-md-3 border">Order Id</div>
+                <div className="col-md-3 border"> Order status</div>
+                <div className="col-md-3 border"> </div>
+                <div className="col-md-3 border"> </div>
+              </div> */}
               <div className="row">
-                <div className="col-md-4 border">Order Id</div>
-                <div className="col-md-4 border"> Order status</div>
-                <div className="col-md-4 border"> </div>
-              </div>
-              <div className="row">
-                <div className="col-md-4 border">{order.id}</div>
-                <div className="col-md-4 border">{order.status}</div>
-                <div className="col-md-4 border">
-                  <input
-                    type="checkbox"
-                    onChange={() =>
-                      dispatch(updatingOrders({ id: order.id, status: "done" }))
-                    }
-                    className="form-check-input"
-                    id="defaultCheck1"
-                  ></input>
+                <div className="col-md-3 border">{order.id}</div>
+                <div className="col-md-3 border">{order.status}</div>
+                <div className="col-md-3 border">
+                  <button
+                    className="btn-order"
+                    type="submit"
+                    onClick={() => approvedOnclickHandler(order)}
+                  >
+                    Done
+                  </button>
+                </div>
+                <div className="col-md-3 border">
+                  <button
+                    className="btn-order"
+                    type="submit"
+                    onClick={() => cancelOnclickHandler(order)}
+                  >
+                    Cancel
+                  </button>
                 </div>
               </div>
             </div>

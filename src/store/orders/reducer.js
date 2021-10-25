@@ -1,4 +1,4 @@
-import { CREATED_ORDER, ORDERS_FETCHED } from "./actions";
+import { CREATED_ORDER, ORDERS_FETCHED, UPDATED_ORDER } from "./actions";
 const initialState = {
   all: [],
 };
@@ -18,6 +18,22 @@ export default function reducer(state = initialState, { type, payload }) {
         all: payload,
       };
     }
+
+    case UPDATED_ORDER: {
+      const updatedStatus = state.all.map((s) => {
+        if (s.id !== payload.id) {
+          return s;
+        } else {
+          return payload;
+        }
+      });
+      console.log("updated status", updatedStatus);
+      return {
+        ...state,
+        all: updatedStatus,
+      };
+    }
+
     default: {
       return state;
     }

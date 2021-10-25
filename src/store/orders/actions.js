@@ -67,9 +67,10 @@ export const orderUpdated = (data) => {
 export function updatingOrders(data) {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.patch(`${apiUrl}/order/${data.id}`, data);
-      console.log("response action", response);
-      // dispatch(orderUpdated(response.data.status));
+      const response = await axios.patch(`${apiUrl}/order/${data.id}`, {
+        data,
+      });
+      dispatch(orderUpdated(response.data));
     } catch (e) {
       console.log(e.message);
     }
