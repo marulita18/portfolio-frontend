@@ -5,10 +5,26 @@ import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
+import { contactUsEmail } from "../store/user/actions";
+
+const initialState = {
+  message: "",
+  email: "",
+};
 
 export default function ContactForm() {
-  const [message, setMessage] = useState("");
-  const [email, setEmail] = useState("");
+  const dispatch = useDispatch();
+  const [form, setForm] = useState(initialState);
+
+  function onChangeHandler(event) {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  }
+
+  function submitForm(event) {
+    console.log("form");
+    event.preventDefault();
+    dispatch(contactUsEmail(form));
+  }
 
   return (
     <div
@@ -26,8 +42,9 @@ export default function ContactForm() {
           </Form.Label>
           <Col sm={10}>
             <Form.Control
-              value={message}
-              onChange={(event) => setMessage(event.target.value)}
+              name="message"
+              value={form.message}
+              onChange={(event) => onChangeHandler(event)}
               placeholder="Your message"
               required
             />
@@ -44,8 +61,9 @@ export default function ContactForm() {
           </Form.Label>
           <Col sm={10}>
             <Form.Control
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              name="email"
+              value={form.email}
+              onChange={(event) => onChangeHandler(event)}
               placeholder="Your email"
               required
             />
@@ -62,7 +80,7 @@ export default function ContactForm() {
                 borderColor: "#6d597a",
                 fontSize: "20px",
               }}
-              // onClick={submitForm}
+              onClick={submitForm}
             >
               Submit
             </Button>

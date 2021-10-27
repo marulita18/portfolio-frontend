@@ -112,3 +112,16 @@ export const getUserWithStoredToken = () => {
     }
   };
 };
+
+export const contactUsEmail = (data) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.post(`${apiUrl}/support`, {
+        data,
+      });
+      console.log("data", response.data);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+};

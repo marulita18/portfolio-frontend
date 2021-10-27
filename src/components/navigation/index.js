@@ -13,8 +13,9 @@ export default function Navigation() {
   const cart = useSelector(getCartWithWines);
   const token = useSelector(selectToken);
   const loginLogout = token ? <LoggedIn /> : <LoggedOut />;
-  // console.log("lenght", cart[0].amount);
 
+  const totalItems = cart.reduce((total, item) => total + item.amount, 0);
+  console.log("total items", !!totalItems);
   return (
     <div>
       <Navbar
@@ -48,12 +49,7 @@ export default function Navigation() {
                 activeClassName="active"
                 to="/cart"
               >
-                <span>
-                  {" "}
-                  {/* {cart[0].amount && cart[0].amount > 0
-                    ? cart[0].amount
-                    : null}{" "} */}
-                </span>
+                {totalItems ? <span>{totalItems}</span> : null}
                 Cart
               </NavLink>
             </Nav.Item>
