@@ -1,0 +1,14 @@
+.body {
+  min-height: calc(75vh - 40px);
+}
+
+.btn-order {
+  border-color: #6d597a;
+  background-color: #6d597a;
+  color: white;
+  border-radius: 4px;
+}
+
+.btn-order:hover {
+  background-color: #202020;
+}
