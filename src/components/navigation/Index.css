@@ -8,10 +8,11 @@
   color: #ccc9dc;
   font-weight: 800%;
   transition: all 100ms ease-in-out;
+  font-weight: bold;
 }
 
 .navLink.active {
-  color: #1b2a41;
+  color: #eaac8b;
 }
 
 .navLink:hover {
@@ -24,7 +25,11 @@
 .wrapper span {
   position: absolute;
   top: -6px;
-  right: -8px;
-  color: #1b2a41;
+  right: -12px;
+  color: #eaac8b;
   font-weight: bold;
+}
+
+.nav-text {
+  font-size: 22px;
 }

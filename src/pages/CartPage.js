@@ -51,8 +51,7 @@ export default function CartPage() {
                     <div className="total">
                       <div>
                         <div className="total-amount">
-                          <strong>Total: </strong> $
-                          {item.amount * item.allWines.price}
+                          Subtotal: ${item.amount * item.allWines.price}
                         </div>
                       </div>
                     </div>
@@ -77,9 +76,11 @@ export default function CartPage() {
               style={{
                 marginTop: "20px",
                 marginBottom: "20px",
-                backgroundColor: "#324a5f",
-                borderColor: "#324a5f",
-                color: "white",
+                backgroundColor: "#eaac8b",
+                borderColor: "#eaac8b",
+                color: "#6d597a",
+                padding: "20px",
+                fontSize: "20px",
               }}
               onClick={() => {
                 setShowPaypal(true);

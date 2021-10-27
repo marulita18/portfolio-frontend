@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import { login } from "../store/user/actions";
-import { selectToken } from "../store/user/selector";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 
@@ -15,7 +14,6 @@ export default function Login() {
   const dispatch = useDispatch();
 
   function submitForm(event) {
-    console.log("hi");
     event.preventDefault();
 
     dispatch(login(email, password, redirectHomepage));
@@ -29,7 +27,7 @@ export default function Login() {
   }
 
   return (
-    <div>
+    <div style={{ minHeight: "calc(70vh - 10px)" }}>
       <Form style={{ display: "block", width: "80%" }}>
         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
           <Form.Label column sm={2}>

@@ -11,9 +11,12 @@ export default function LoggedIn() {
 
   return (
     <div className="d-flex align-items-center flex-wrap justify-content-right">
-      <Nav.Item>{user.name} </Nav.Item>
+      <Nav.Item style={{ color: "#eaac8b", marginRight: "5px" }}>
+        {user.name}{" "}
+      </Nav.Item>
 
       <Button
+        className="log-button"
         style={{
           backgroundColor: "white",
           color: "#6d597a",

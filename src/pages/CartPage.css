@@ -1,5 +1,5 @@
 .body {
-  min-height: calc(70vh - 20px);
+  min-height: calc(100vh - 20px);
 }
 .Cart-container {
   margin: 40px;
@@ -48,7 +48,7 @@
   font-size: 20px;
   font-family: ‘Open Sans’;
   font-weight: 700;
-  color: #202020;
+  color: #6d597a;
   list-style: none;
 }
 
@@ -88,4 +88,6 @@
 .total-amount {
   color: #6d597a;
   font-weight: 600;
+  font-size: 20px;
+  font-family: ‘Open Sans’;
 }

@@ -8,14 +8,12 @@ export default function reducer(state = initialState, { type, payload }) {
       return [];
     }
     case ADDED_TO_CART: {
-      // console.log("payload", payload);
       const itemExists = state.find((item) => {
         return parseInt(item.wineId) === parseInt(payload.wineId);
       });
       const updatedItem = itemExists
         ? { ...itemExists, amount: itemExists.amount + 1 }
         : null;
-      // console.log("Updated item", updatedItem);
       const newState = updatedItem
         ? state.map((item) => {
             if (parseInt(item.wineId) !== parseInt(itemExists.wineId)) {
@@ -25,7 +23,6 @@ export default function reducer(state = initialState, { type, payload }) {
             }
           })
         : [...state, { ...payload, amount: 1 }];
-      // console.log("my new state", newState);
       return newState;
     }
 
@@ -41,10 +38,6 @@ export default function reducer(state = initialState, { type, payload }) {
       const newState =
         updatedItem && updatedItem.amount > 0
           ? state.map((item) => {
-              // console.log(
-              //   `Is ${item.wineId} equal to ${updatedItem.wineId}`,
-              //   item.wineId === updatedItem.wineId
-              // );
               if (item.wineId !== updatedItem.wineId) {
                 return item;
               } else {
@@ -56,7 +49,6 @@ export default function reducer(state = initialState, { type, payload }) {
               return item.wineId !== updatedItem.wineId;
             })
           : state;
-      // console.log("new state remove", newState);
       return newState;
     }
     default: {

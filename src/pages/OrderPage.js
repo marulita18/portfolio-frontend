@@ -41,7 +41,6 @@ export default function OrderPage() {
             <strong>Order Id</strong>
           </div>
           <div className="col-md-3 border">
-            {" "}
             <strong>Order status </strong>
           </div>
           <div className="col-md-3 border"> </div>
@@ -52,12 +51,6 @@ export default function OrderPage() {
         orders.map((order) => {
           return (
             <div key={order.id} className="container">
-              {/* <div className="row">
-                <div className="col-md-3 border">Order Id</div>
-                <div className="col-md-3 border"> Order status</div>
-                <div className="col-md-3 border"> </div>
-                <div className="col-md-3 border"> </div>
-              </div> */}
               <div className="row">
                 <div className="col-md-3 border">{order.id}</div>
                 <div className="col-md-3 border">{order.status}</div>

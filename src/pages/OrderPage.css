@@ -6,6 +6,7 @@
   border-color: #6d597a;
   background-color: #6d597a;
   color: white;
+  border-radius: 4px;
 }
 
 .btn-order:hover {

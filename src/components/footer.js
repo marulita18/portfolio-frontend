@@ -31,7 +31,6 @@ export default function Footer() {
           style={{ padding: "10px" }}
         ></img>
       </div>
-      {/* <div className="footer-right"></div> */}
     </div>
   );
 }

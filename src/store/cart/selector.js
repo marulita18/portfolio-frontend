@@ -10,6 +10,5 @@ export const getCartWithWines = (reduxState) => {
       allWines: allWines.find((wine) => wine.id === item.wineId),
     };
   });
-  //   console.log("full caart", fullCart);
   return fullCart;
 };

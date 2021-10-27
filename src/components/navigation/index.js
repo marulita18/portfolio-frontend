@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { getCartWithWines } from "../../store/cart/selector";
 import { selectToken } from "../../store/user/selector";
 import { NavLink } from "react-router-dom";
-import "./navigation.css";
+import "./Index.css";
 
 export default function Navigation() {
   const cart = useSelector(getCartWithWines);
@@ -15,9 +15,8 @@ export default function Navigation() {
   const loginLogout = token ? <LoggedIn /> : <LoggedOut />;
 
   const totalItems = cart.reduce((total, item) => total + item.amount, 0);
-  console.log("total items", !!totalItems);
   return (
-    <div>
+    <div className="nav-text">
       <Navbar
         className="row justify-content-around align-items-center"
         style={{

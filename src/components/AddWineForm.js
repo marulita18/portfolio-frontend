@@ -28,7 +28,7 @@ export default function AddWineForm() {
             <Form.Control
               value={name}
               onChange={(event) => setName(event.target.value)}
-              placeholder="Name of new wine"
+              placeholder="Please add a name"
               required
             />
           </Col>
