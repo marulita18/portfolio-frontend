@@ -46,7 +46,7 @@ export default function SignUp() {
             />
           </Col>
         </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+        <Form.Group as={Row} className="mb-3">
           <Form.Label column sm={2}>
             Email
           </Form.Label>

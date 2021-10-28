@@ -19,7 +19,7 @@ export default function AdminDashboard() {
     if (!user.token || !user.isAdmin) {
       history.push("/");
     }
-  }, []);
+  }, [history]);
 
   useEffect(() => {
     dispatch(fetchingWines());

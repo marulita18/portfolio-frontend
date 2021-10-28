@@ -108,7 +108,7 @@ export function removeWine(id) {
   return async (dispatch, getState) => {
     try {
       const token = getState().user.token;
-      const response = await axios.delete(`${apiUrl}/wines/${id}`, {
+      await axios.delete(`${apiUrl}/wines/${id}`, {
         headers: {
           authorization: `Bearer ${token}`,
         },

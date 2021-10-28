@@ -16,7 +16,7 @@ export default function OrderPage() {
     if (!user.token || !user.isAdmin) {
       history.push("/");
     }
-  }, []);
+  }, [history]);
 
   useEffect(() => {
     dispatch(fetchingOrders());
