@@ -57,17 +57,15 @@
    
 ## Wireframes
 
- <p> You can see the wireframe here:
-
-<a>https://wireframepro.mockflow.com/view/MQNKniibPmb </a>
+ <p> You can see the wireframe <a href="https://wireframepro.mockflow.com/view/MQNKniibPmb"> here</a>
 
 ## Server-repo
 
  <p> The server side of this project is an Express server connected # to a Sequelize database.
    
    ## Repositories
-<p>You can see the frontend repo here:
-  <a> https://github.com/marulita18/portfolio-frontend </a>
+   
+<p>You can see the frontend repo <a href="https://github.com/marulita18/portfolio-frontend"> here. </a>
 
-<p> You can see the frontend repo here:
-  <a> https://github.com/marulita18/portfolio-backend  </a>
+
+<p> You can see the frontend repo <a href="https://github.com/marulita18/portfolio-backend"> here. </a>
