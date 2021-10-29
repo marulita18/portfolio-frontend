@@ -32,22 +32,29 @@
 
 ## User stories
 
- <li> As a user I want to be able to sign up and have an account
+ <ul> As a user:
+   
 
- <li> As a user I want to be able to reach out to the webshop to clarify any questions I may have
+ <li> I want to be able to sign up and have an account
 
- <li> As a user I want to be able to filter the types of wines
+ <li> I want to be able to reach out to the webshop to clarify any questions I may have
 
- <li> As a user I want to be able to buy one or more wines
+ <li> I want to be able to filter the types of wines
 
- <li> As a user I want to be able to see all the wines available.
+ <li> I want to be able to buy one or more wines
 
- <li> As an admin I want to be able to see a list of my orders
+ <li> I want to be able to see all the wines available.
+ </ul>
+ <ul> As an admin:
+   
 
- <li> As an admin I want to be able to login to see my dashboard
+ <li> I want to be able to see a list of my orders
 
- <li> As an admin I want to be able to edit my products
+ <li> I want to be able to login to see my dashboard
 
+ <li> I want to be able to edit my products
+ </ul>
+   
 ## Wireframes
 
  <p> You can see the wireframe here:
@@ -57,3 +64,10 @@
 ## Server-repo
 
  <p> The server side of this project is an Express server connected # to a Sequelize database.
+   
+   ## Repositories
+<p>You can see the frontend repo here:
+  <a> https://github.com/marulita18/portfolio-frontend </a>
+
+<p> You can see the frontend repo here:
+  <a> https://github.com/marulita18/portfolio-backend  </a>
