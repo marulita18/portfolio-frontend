@@ -29,9 +29,9 @@ export default function CartPage() {
           </Link>
         ) : (
           <div>
-            {cart.map((item) => {
+            {cart.map((item, index) => {
               return (
-                <div key={item.id} className="Cart-Items">
+                <div key={index} className="Cart-Items">
                   <div className="about">
                     <div className="title">
                       {item.allWines.name}
