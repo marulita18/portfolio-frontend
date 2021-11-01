@@ -14,7 +14,7 @@ export default function AboutPage() {
         <img
           src="https://res.cloudinary.com/dwr3lgrza/image/upload/v1634754959/IMG_0379_rocpfd.jpg"
           alt="about us pic"
-          className="about-pic"
+          className="about-pic img-fluid"
         />
       </div>
     </div>

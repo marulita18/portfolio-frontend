@@ -19,7 +19,7 @@ export default function CartPage() {
 
   return (
     <div className="body">
-      <div className="Cart-container">
+      <div className="Cart-container container-fluid">
         <div className="header">
           <h3 className="heading">Shopping cart</h3>
         </div>

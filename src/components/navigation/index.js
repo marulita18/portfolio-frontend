@@ -16,7 +16,7 @@ export default function Navigation() {
 
   const totalItems = cart.reduce((total, item) => total + item.amount, 0);
   return (
-    <div className="nav-text">
+    <div className="nav-text container-fluid">
       <Navbar
         className="row justify-content-around align-items-center"
         style={{
