@@ -13,7 +13,7 @@ import AboutPage from "./pages/AboutPage";
 import CartPage from "./pages/CartPage";
 import OrderPage from "./pages/OrderPage";
 import Footer from "./components/footer/footer";
-import AdminDashboard from "./components/AdminDashboard";
+import AdminDashboard from "./components/adminDashboard/AdminDashboard";
 import "./App.css";
 
 function App() {

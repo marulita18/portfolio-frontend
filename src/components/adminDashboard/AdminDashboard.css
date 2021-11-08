@@ -1,0 +1,24 @@
+.add-btn {
+  margin: 10px;
+  border-radius: 2px;
+  background-color: #ccc9dc;
+  border-color: #ccc9dc;
+  padding: 10px;
+}
+
+.add-btn:hover {
+  color: #e56b6f;
+}
+.orders-link {
+  margin: 10px;
+  border-radius: 2px;
+  background-color: #1b2a41;
+  border-color: #1b2a41;
+  color: #ccc9dc;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.orders-link:hover {
+  color: #e56b6f;
+}

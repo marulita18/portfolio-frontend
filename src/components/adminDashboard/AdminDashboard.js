@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
-import { selectUser } from "../store/user/selector";
-import AddWineForm from "./AddWineForm";
-import { fetchingWines } from "../store/wines/actions";
-import { selectHomepageWines } from "../store/wines/selector";
-import WineCard from "./WineCard";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
+import { selectUser } from "../../store/user/selector";
+import AddWineForm from "../AddWineForm";
+import { fetchingWines } from "../../store/wines/actions";
+import { selectHomepageWines } from "../../store/wines/selector";
+import WineCard from "../WineCard";
+import "./AdminDashboard.css";
 
 export default function AdminDashboard() {
   const dispatch = useDispatch();
@@ -31,32 +32,13 @@ export default function AdminDashboard() {
         {user.token && user.isAdmin && (
           <button
             onClick={() => setShowForm(!showForm)}
-            className="d-flex flex-wrap justify-content-start"
-            style={{
-              margin: "10px",
-              borderRadius: "2px",
-              backgroundColor: "#ccc9dc",
-              borderColor: "#ccc9dc",
-              padding: "10px",
-            }}
+            className="add-btn d-flex flex-wrap justify-content-start"
           >
             Add Wine
           </button>
         )}
         {showForm && <AddWineForm />}
-        <Link
-          to="/orders"
-          className="justify-content-end"
-          style={{
-            margin: "10px",
-            borderRadius: "2px",
-            backgroundColor: "#1b2a41",
-            borderColor: "#1b2a41",
-            color: "#ccc9dc",
-            textDecoration: "none",
-            padding: "10px",
-          }}
-        >
+        <Link to="/orders" className="orders-link justify-content-end">
           See orders
         </Link>
       </div>
