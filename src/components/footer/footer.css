@@ -19,10 +19,23 @@
   text-align: center;
   margin: 0 auto;
   display: block;
-
-  /* min-width: 100px; */
 }
 
 .footer-right {
   flex-grow: 1;
+}
+
+.link-admin {
+  color: #ccc9dc;
+  text-decoration: none;
+  padding: 10px;
+  background-color: #324a5f;
+}
+
+.link-admin:hover {
+  color: #e56b6f;
+}
+
+.logo-img {
+  padding: 10px;
 }

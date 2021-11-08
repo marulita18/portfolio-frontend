@@ -12,7 +12,7 @@ import SignUp from "./pages/Signup";
 import AboutPage from "./pages/AboutPage";
 import CartPage from "./pages/CartPage";
 import OrderPage from "./pages/OrderPage";
-import Footer from "./components/footer";
+import Footer from "./components/footer/footer";
 import AdminDashboard from "./components/AdminDashboard";
 import "./App.css";
 
